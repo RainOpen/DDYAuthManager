@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A469EA752179DD2300174EAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA6E2179DD2300174EAD /* AppDelegate.m */; };
+		A469EA762179DD2300174EAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A469EA6F2179DD2300174EAD /* LaunchScreen.storyboard */; };
+		A469EA772179DD2300174EAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A469EA712179DD2300174EAD /* Info.plist */; };
+		A469EA782179DD2300174EAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA722179DD2300174EAD /* main.m */; };
+		A469EA792179DD2300174EAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA742179DD2300174EAD /* ViewController.m */; };
+		A469EA7C2179DD7600174EAD /* DDYAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA7B2179DD7600174EAD /* DDYAuthManager.m */; };
+		A469EA802179E38000174EAD /* DDYAuthManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = A469EA822179E38000174EAD /* DDYAuthManager.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A469EA562179DC2E00174EAD /* DDYAuthManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYAuthManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A469EA6D2179DD2300174EAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A469EA6E2179DD2300174EAD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A469EA702179DD2300174EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A469EA712179DD2300174EAD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A469EA722179DD2300174EAD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A469EA732179DD2300174EAD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A469EA742179DD2300174EAD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A469EA7A2179DD7600174EAD /* DDYAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDYAuthManager.h; sourceTree = "<group>"; };
+		A469EA7B2179DD7600174EAD /* DDYAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDYAuthManager.m; sourceTree = "<group>"; };
+		A469EA7F2179E37A00174EAD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A469EA812179E38000174EAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DDYAuthManager.strings; sourceTree = "<group>"; };
+		A469EA832179E38100174EAD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DDYAuthManager.strings"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A469EA532179DC2E00174EAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A469EA4D2179DC2E00174EAD = {
+			isa = PBXGroup;
+			children = (
+				A469EA6C2179DD2300174EAD /* DDYAuthManagerExample */,
+				A469EA582179DC2E00174EAD /* DDYAuthManager */,
+				A469EA572179DC2E00174EAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A469EA572179DC2E00174EAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A469EA562179DC2E00174EAD /* DDYAuthManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A469EA582179DC2E00174EAD /* DDYAuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				A469EA7A2179DD7600174EAD /* DDYAuthManager.h */,
+				A469EA7B2179DD7600174EAD /* DDYAuthManager.m */,
+				A469EA822179E38000174EAD /* DDYAuthManager.strings */,
+			);
+			path = DDYAuthManager;
+			sourceTree = "<group>";
+		};
+		A469EA6C2179DD2300174EAD /* DDYAuthManagerExample */ = {
+			isa = PBXGroup;
+			children = (
+				A469EA6D2179DD2300174EAD /* AppDelegate.h */,
+				A469EA6E2179DD2300174EAD /* AppDelegate.m */,
+				A469EA6F2179DD2300174EAD /* LaunchScreen.storyboard */,
+				A469EA712179DD2300174EAD /* Info.plist */,
+				A469EA722179DD2300174EAD /* main.m */,
+				A469EA732179DD2300174EAD /* ViewController.h */,
+				A469EA742179DD2300174EAD /* ViewController.m */,
+			);
+			path = DDYAuthManagerExample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A469EA552179DC2E00174EAD /* DDYAuthManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A469EA692179DC3200174EAD /* Build configuration list for PBXNativeTarget "DDYAuthManager" */;
+			buildPhases = (
+				A469EA522179DC2E00174EAD /* Sources */,
+				A469EA532179DC2E00174EAD /* Frameworks */,
+				A469EA542179DC2E00174EAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DDYAuthManager;
+			productName = DDYAuthManager;
+			productReference = A469EA562179DC2E00174EAD /* DDYAuthManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A469EA4E2179DC2E00174EAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = com.smartmesh;
+				TargetAttributes = {
+					A469EA552179DC2E00174EAD = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = A469EA512179DC2E00174EAD /* Build configuration list for PBXProject "DDYAuthManager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = A469EA4D2179DC2E00174EAD;
+			productRefGroup = A469EA572179DC2E00174EAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A469EA552179DC2E00174EAD /* DDYAuthManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A469EA542179DC2E00174EAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A469EA802179E38000174EAD /* DDYAuthManager.strings in Resources */,
+				A469EA772179DD2300174EAD /* Info.plist in Resources */,
+				A469EA762179DD2300174EAD /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A469EA522179DC2E00174EAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A469EA792179DD2300174EAD /* ViewController.m in Sources */,
+				A469EA7C2179DD7600174EAD /* DDYAuthManager.m in Sources */,
+				A469EA782179DD2300174EAD /* main.m in Sources */,
+				A469EA752179DD2300174EAD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A469EA6F2179DD2300174EAD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A469EA702179DD2300174EAD /* Base */,
+				A469EA7F2179E37A00174EAD /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A469EA822179E38000174EAD /* DDYAuthManager.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A469EA812179E38000174EAD /* en */,
+				A469EA832179E38100174EAD /* zh-Hans */,
+			);
+			name = DDYAuthManager.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A469EA672179DC3200174EAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A469EA682179DC3200174EAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A469EA6A2179DC3200174EAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 23JJ7VRKJT;
+				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartmesh.smart2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A469EA6B2179DC3200174EAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 23JJ7VRKJT;
+				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartmesh.smart2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A469EA512179DC2E00174EAD /* Build configuration list for PBXProject "DDYAuthManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A469EA672179DC3200174EAD /* Debug */,
+				A469EA682179DC3200174EAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A469EA692179DC3200174EAD /* Build configuration list for PBXNativeTarget "DDYAuthManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A469EA6A2179DC3200174EAD /* Debug */,
+				A469EA6B2179DC3200174EAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A469EA4E2179DC2E00174EAD /* Project object */;
+}

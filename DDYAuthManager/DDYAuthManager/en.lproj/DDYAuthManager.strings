@@ -1,0 +1,14 @@
+"DDYNoAuthMicrophone" = "Allow %@ to access your Microphone on Setting-privacy on your iPhone";
+"DDYNoAuthCamera" = "Allow %@ to access your Camera on Setting-privacy on your iPhone";
+"DDYNoAuthAlbum" = "Allow %@ to access your Photos on Setting-privacy on your iPhone";
+"DDYNoAuthContacts" = "Allow %@ to access your Contacts on Setting-privacy on your iPhone";
+"DDYNoAuthCalendars" = "Allow %@ to access your Calendars on Setting-privacy on your iPhone";
+"DDYNoAuthReminders" = "Allow %@ to access your Reminders on Setting-privacy on your iPhone";
+"DDYNoAuthNetwork" = "Allow %@ to access your Network on Setting on your iPhone";
+"DDYNoAuthNotifications" = "Allow %@ to access your Notifications on Setting on your iPhone";
+"DDYNoAuthLocation" = "Allow %@ to access your Location services on Setting-privacy on your iPhone";
+"DDYNoAuthSpeech" = "Allow %@ to access your Speech on Setting on your iPhone";
+"DDYNoAuthHealth" = "Allow %@ to access your Health on Setting-privacy on your iPhone";
+
+"DDYNoAuthCancel" = "Cancel";
+"DDYNoAuthConfirm" = "OK";
