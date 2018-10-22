@@ -3,7 +3,7 @@
  *  !!!: QQ/WX:  634778311
  *  !!!: Github: https://github.com/RainOpen/
  *  !!!: Blog:   https://www.jianshu.com/u/a4bc2516e9e5
- *  MARK: -
+ *  MARK: - 为了更直观，所以将成功与失败回调block分开了
  */
 
 #import <Foundation/Foundation.h>
@@ -122,7 +122,7 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
                         fail:(void (^)(CTCellularDataRestrictedState authStatus))fail API_AVAILABLE(ios(10.0));
 
 /**
- 推送通知权限 需要在打开 target -> Capabilities —> Push Notifications iOS10+带主动请权，iOS9-不带主动请权
+ 推送通知权限 需要在打开 target -> Capabilities —> Push Notifications iOS10+带主动请权，iOS8-iOS9不带主动请权
  @param show 无权限时默认提示
  @param success 已授权
  @param fail 未授权 只返回是否有权限推送，不返回具体权限(badge,alert,sound)

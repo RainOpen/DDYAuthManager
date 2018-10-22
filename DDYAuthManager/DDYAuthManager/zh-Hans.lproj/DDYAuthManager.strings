@@ -1,14 +1,14 @@
-"DDYNoAuthMicrophone" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的麦克风";
-"DDYNoAuthCamera" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的相机";
-"DDYNoAuthAlbum" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的照片";
-"DDYNoAuthContacts" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的通讯录";
-"DDYNoAuthCalendars" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的日历";
-"DDYNoAuthReminders" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的提醒事项";
-"DDYNoAuthNetwork" = "请在iPhoned的 设置 选项中，允许%@访问你的网络";
-"DDYNoAuthNotifications" = "请在iPhoned的 设置 选项中，允许%@访问你的通知";
-"DDYNoAuthLocation" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的定位服务";
-"DDYNoAuthSpeech" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的语音识别";
-"DDYNoAuthHealth" = "请在iPhoned的 设置-隐私 选项中，允许%@访问你的健康";
+"DDYNoAuthMicrophone" = "请在 'Setting-%@' 选项中，允许访问你的麦克风";
+"DDYNoAuthCamera" = "请在 'Setting-%@' 选项中，允许访问你的相机";
+"DDYNoAuthAlbum" = "请在 'Setting-%@' 选项中，允许访问你的照片";
+"DDYNoAuthContacts" = "请在 'Setting-%@' 选项中，允许访问你的通讯录";
+"DDYNoAuthCalendars" = "请在 'Setting-%@' 选项中，允许访问你的日历";
+"DDYNoAuthReminders" = "请在 'Setting-%@' 选项中，允许访问你的提醒事项";
+"DDYNoAuthNetwork" = "请在 'Setting-%@' 选项中，允许访问你的网络";
+"DDYNoAuthNotifications" = "请在 'Setting-%@' 选项中，允许访问你的通知";
+"DDYNoAuthLocation" = "请在 'Setting-%@' 选项中，允许访问你的定位服务";
+"DDYNoAuthSpeech" = "请在 'Setting-%@' 选项中，允许访问你的语音识别";
+"DDYNoAuthHealth" = "请在 'Setting-%@' 选项中，允许访问你的健康";
 
 "DDYNoAuthCancel" = "取消";
 "DDYNoAuthConfirm" = "确定";

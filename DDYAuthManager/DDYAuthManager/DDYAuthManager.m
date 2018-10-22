@@ -195,16 +195,27 @@
 }
 
 #pragma mark 联网权限 iOS 10+
+/**
+ // 网络权限更改回调,如果不想每次改变都回调那记得置nil
+ cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state) {
+ dispatch_async(dispatch_get_main_queue(), ^{
+ if (state == kCTCellularDataNotRestricted) {
+ if (authState != state) handleResult(YES, state);
+ } else {
+ if (authState != state) handleResult(NO, state);
+ if (show && authState != state) handleResult(NO, authState);
+ }
+ });
+ };
+ */
 + (void)ddy_NetAuthAlertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(CTCellularDataRestrictedState))fail {
     // CTCellularData在iOS9之前是私有类，但联网权限设置是iOS10开始的
     if (@available(iOS 10.0, *)) {
         void (^handleResult)(BOOL, CTCellularDataRestrictedState) = ^(BOOL isAuthorized, CTCellularDataRestrictedState authStatus) {
             if (isAuthorized && success) success();
             if (!isAuthorized && fail) fail(authStatus);
-            if (isAuthorized == kCTCellularDataRestricted && show) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthNetwork"]];
+            if (!isAuthorized && show) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthNetwork"]];
         };
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DDYNetAuthorityString"];
         CTCellularData *cellularData = [[CTCellularData alloc] init];
         CTCellularDataRestrictedState authState = cellularData.restrictedState;
         if (authState == kCTCellularDataNotRestricted) {
@@ -212,23 +223,18 @@
         } else if (authState == kCTCellularDataRestricted) {
             handleResult(NO, authState);
         } else {
-            handleResult(NO, authState);
-            static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
-                [self ddy_GetNetAuthWithURL:nil];
-            });
-        }
-        // 网络权限更改回调,如果不想每次改变都回调那记得置nil
-        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (state == kCTCellularDataNotRestricted) {
-                    if (authState != state) handleResult(YES, state);
+            // CTCellularData刚实例化对象时可能kCTCellularDataRestrictedStateUnknown，所以延迟一下
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                CTCellularDataRestrictedState authState2 = cellularData.restrictedState;
+                if (authState2 == kCTCellularDataNotRestricted) {
+                    handleResult(YES, authState2);
+                } else if (authState == kCTCellularDataRestricted) {
+                    handleResult(NO, authState2);
                 } else {
-                    if (authState != state) handleResult(NO, state);
-                    if (show && authState != state) handleResult(NO, authState);
+                    handleResult(NO, authState2);
                 }
             });
-        };
+        }
     }
 }
 
@@ -254,21 +260,11 @@
             }
         }];
     } else {
-        if (@available(iOS 8.0, *)) {
-            UIUserNotificationSettings *settings = [[UIApplication sharedApplication] currentUserNotificationSettings];
-            // UIUserNotificationTypeNone 收到通知不呈现UI，可能无权限也可能还未询问权限
-            if (settings.types != UIUserNotificationTypeNone && success) success();
-            if (settings.types == UIUserNotificationTypeNone && fail) fail();
-            if (show && settings.types == UIUserNotificationTypeNone) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthNotifications"]];
-        } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            UIRemoteNotificationType type = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-            if (type != UIRemoteNotificationTypeNone && success) success();
-            if (type == UIRemoteNotificationTypeNone && fail) fail();
-            if (show && type == UIRemoteNotificationTypeNone) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthNotifications"]];
-#pragma clang diagnostic pop
-        }
+        UIUserNotificationSettings *settings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        // UIUserNotificationTypeNone 收到通知不呈现UI，可能无权限也可能还未询问权限
+        if (settings.types != UIUserNotificationTypeNone && success) success();
+        if (settings.types == UIUserNotificationTypeNone && fail) fail();
+        if (show && settings.types == UIUserNotificationTypeNone) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthNotifications"]];
     }
 }
 

@@ -7,20 +7,12 @@
 
 @property (nonatomic, strong) UIImage *imgSelect;
 
-@property (nonatomic, strong) NSMutableArray *buttonArray;
 // CLLocationManager实例必须是全局的变量，否则授权提示弹框可能不会一直显示。
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
 @implementation ViewController
-
-- (NSMutableArray *)buttonArray {
-    if (!_buttonArray) {
-        _buttonArray = [NSMutableArray array];
-    }
-    return _buttonArray;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,17 +21,22 @@
     
     [self requestWhenInUseLocationAuthorization];
     [self registerRemoteNotification];
+    [self requestNetAuth];
     
-    NSArray *authArray = @[@"麦克风", @"摄像头", @"相册", @"通讯录", @"日历", @"备忘录", @"联网权限", @"推送", @"定位", @"语音识别", @"特别声明"];
+    NSArray *authArray = @[@"麦克风", @"摄像头", @"相册", @"通讯录", @"日历", @"备忘录", @"推送", @"定位", @"语音识别(iOS10+)", @"联网权限(iOS10+)"];
     for (NSInteger i = 0; i < authArray.count; i++) {
         @autoreleasepool {
             UIButton *button = [self generateButton:i title:authArray[i]];
-            [self.buttonArray addObject:button];
             if ([[NSUserDefaults standardUserDefaults] valueForKey:[NSString stringWithFormat:@"%ld_auth", button.tag]]) {
                 [self performSelectorOnMainThread:@selector(handleClick:) withObject:button waitUntilDone:YES];
             }
         }
     }
+}
+
+#pragma mark 联网权限
+- (void)requestNetAuth {
+    [DDYAuthManager ddy_GetNetAuthWithURL:nil];
 }
 
 #pragma mark 定位申请
@@ -60,17 +57,11 @@
                 if (!error) [[UIApplication sharedApplication] registerForRemoteNotifications]; // 注册获得device Token
             });
         }];
-    } else if (@available(iOS 8.0, *)) {
+    } else {
         UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications]; // 注册获得device Token
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        UIRemoteNotificationType types = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
-#pragma clang diagnostic pop
     }
 }
 
@@ -85,7 +76,7 @@
     [button setTag:tag+100];
     [self.view addSubview:button];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
-    [button setFrame:CGRectMake(self.view.bounds.size.width/2.-60, tag*45 + 100, 120, 30)];
+    [button setFrame:CGRectMake(self.view.bounds.size.width/2.-80, tag*45 + 100, 160, 30)];
     button.layer.borderWidth = 1;
     button.layer.borderColor = [UIColor redColor].CGColor;
     return button;
@@ -104,7 +95,7 @@
             } fail:^(AVAuthorizationStatus authStatus) { }];
         } else {
             sender.selected = NO;
-            NSLog(@"摄像头不可用");
+            [self showAlertWithMessage:@"摄像头不可用"];
         }
     } else if (sender.tag == 102) {
         [DDYAuthManager ddy_AlbumAuthAlertShow:YES success:^{
@@ -123,18 +114,10 @@
             sender.selected = YES;
         } fail:^(EKAuthorizationStatus authStatus) { }];
     } else if (sender.tag == 106) {
-        if (@available(iOS 10.0, *)) {
-            [DDYAuthManager ddy_NetAuthAlertShow:YES success:^{
-                sender.selected = YES;
-            } fail:^(CTCellularDataRestrictedState authStatus) { }];
-        } else {
-            sender.selected = YES;
-        }
-    } else if (sender.tag == 107) {
         [DDYAuthManager ddy_PushNotificationAuthAlertShow:YES success:^{
             sender.selected = YES;
         } fail:^{ }];
-    } else if (sender.tag == 108) {
+    } else if (sender.tag == 107) {
         if ([CLLocationManager locationServicesEnabled]) {
             [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeInUse alertShow:YES success:^{
                 sender.selected = YES;
@@ -144,7 +127,7 @@
             NSLog(@"定位服务未开启");
         }
         
-    } else if (sender.tag == 109) {
+    } else if (sender.tag == 108) {
         if (@available(iOS 10.0, *)) {
             [DDYAuthManager ddy_SpeechAuthAlertShow:YES success:^{
                 sender.selected = YES;
@@ -153,8 +136,14 @@
             sender.selected = NO;
             [self showAlertWithMessage:@"iOS10+才有"];
         }
-    } else {
-        NSLog(@"Demo仅供参考");
+    } else if (sender.tag == 109) {
+        if (@available(iOS 10.0, *)) {
+            [DDYAuthManager ddy_NetAuthAlertShow:YES success:^{
+                sender.selected = YES;
+            } fail:^(CTCellularDataRestrictedState authStatus) { }];
+        } else {
+            sender.selected = YES;
+        }
     }
 }
 
