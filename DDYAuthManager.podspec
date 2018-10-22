@@ -6,7 +6,7 @@ Pod::Spec.new do |ddyspec|
     ddyspec.license      = 'MIT'
     ddyspec.authors      = {'Rain' => '634778311@qq.com'}
     ddyspec.platform     = :ios, '8.0'
-    ddyspec.source       = {:git => 'https://github.com/RainOpen/DDYAuthManager.git', :tag => s.version}
+    ddyspec.source       = {:git => 'https://github.com/RainOpen/DDYAuthManager.git', :tag => ddyspec.version}
     ddyspec.source_files = 'DDYAuthManager/DDYAuthManager/*.{h,m}'
     ddyspec.resource     = 'DDYAuthManager/DDYAuthManager/DDYAuthManager.bundle'
     ddyspec.requires_arc = false
