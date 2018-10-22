@@ -7,9 +7,12 @@
  */
 
 #import "DDYAuthManager.h"
+#import "NSBundle+DDYAuthManger.h"
 
 @implementation DDYAuthManager
-
+/**
+ [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) { }];
+ */
 #pragma mark 麦克风权限
 + (void)ddy_AudioAuthAlertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(AVAuthorizationStatus))fail {
     void (^handleResult)(BOOL, AVAuthorizationStatus) = ^(BOOL isAuthorized, AVAuthorizationStatus authStatus) {
@@ -20,7 +23,7 @@
     
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
     if (authStatus == AVAuthorizationStatusNotDetermined) {
-        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 handleResult(granted, granted ? AVAuthorizationStatusAuthorized : AVAuthorizationStatusDenied);
             });
@@ -40,7 +43,7 @@
     
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusNotDetermined) {
-        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 handleResult(granted, granted ? AVAuthorizationStatusAuthorized : AVAuthorizationStatusDenied);
             });
@@ -335,8 +338,8 @@
 + (void)showAlertWithAuthInfo:(NSString *)authInfo {
     NSString *message = [authInfo stringByReplacingOccurrencesOfString:@"%@" withString:[self getAPPName]];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"DDYNoAuthCancel", @"DDYAuthManager", nil) style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"DDYNoAuthConfirm", @"DDYAuthManager", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:[self i18n:@"DDYNoAuthCancel"] style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:[self i18n:@"DDYNoAuthConfirm"] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         if (@available(iOS 10.0, *)) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
         } else {
@@ -355,7 +358,7 @@
 }
 
 + (NSString *)i18n:(NSString *)str {
-    return NSLocalizedStringFromTable(str, @"DDYAuthManager", nil);
+    return DDYAuthManagerI18n(str);
 }
 
 @end

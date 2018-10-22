@@ -163,3 +163,56 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
                   fail:(void (^)(HKAuthorizationStatus authStatus))fail;
 
 @end
+
+/**
+ <!-- http AST -->
+ <key>NSAppTransportSecurity</key>
+ <dict>
+ <key>NSAllowsArbitraryLoads</key>
+ <true/>
+ </dict>
+ 
+ 
+ <!-- 权限配置 -->
+ <key>NSAppleMusicUsageDescription</key>
+ <string>App需要您的同意，才能访问媒体资料库，是否同意？</string>
+ <key>NSBluetoothPeripheralUsageDescription</key>
+ <string>App需要您的同意，才能访问蓝牙，是否同意？</string>
+ <key>NSCalendarsUsageDescription</key>
+ <string>App需要您的同意，才能访问日历，是否同意？</string>
+ <key>NSCameraUsageDescription</key>
+ <string>App需要您的同意，才能使用相机，是否同意？</string>
+ <key>NSContactsUsageDescription</key>
+ <string>App需要您的同意，才能使用通讯录，是否同意？</string>
+ <key>NSHealthShareUsageDescription</key>
+ <string>App需要您的同意，才能访问健康分享，是否同意？</string>
+ <key>NSHealthUpdateUsageDescription</key>
+ <string>App需要您的同意，才能访问健康更新，是否同意？</string>
+ <key>NSLocationAlwaysUsageDescription</key>
+ <string>App需要您的同意，才能始终访问位置</string>
+ <key>NSLocationUsageDescription</key>
+ <string>App需要您的同意，才能访问位置，是否同意？</string>
+ <key>NSLocationWhenInUseUsageDescription</key>
+ <string>App需要您的同意，才能在使用期间访问位置</string>
+ <key>NSMicrophoneUsageDescription</key>
+ <string>App需要您的同意，才能使用麦克风，是否同意？</string>
+ <key>NSMotionUsageDescription</key>
+ <string>App需要您的同意，才能访问运动与健身，是否同意？</string>
+ <key>NSPhotoLibraryUsageDescription</key>
+ <string>App需要您的同意，才能访问相册，是否同意？</string>
+ <key>NSPhotoLibraryAddUsageDescription</key>
+ <string>App需要您的同意，才能保存图片到相册，是否同意？</string>
+ <key>NSRemindersUsageDescription</key>
+ <string>App需要您的同意，才能访问提醒事项，是否同意？</string>
+ <key>NSSpeechRecognitionUsageDescription</key>
+ <string>App需要您的同意，才能使用语音识别，是否同意？</string>
+ <key>NSFaceIDUsageDescription</key>
+ <string>App需要您的同意，才能使用Face ID，是否同意？</string>
+ <key>NSHomeKitUsageDescription</key>
+ <string>App需要您的同意，才能使用HomeKit，是否同意？</string>
+ <key>NFCReaderUsageDescription</key>
+ <string>App需要您的同意，才能使用NFC，是否同意？</string>
+ <key>NSSiriUsageDescription</key>
+ <string>App需要您的同意，才能使用Siri，是否同意？</string>
+ */
+

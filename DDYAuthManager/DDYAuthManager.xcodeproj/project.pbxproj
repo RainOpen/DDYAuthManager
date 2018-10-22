@@ -13,7 +13,8 @@
 		A469EA782179DD2300174EAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA722179DD2300174EAD /* main.m */; };
 		A469EA792179DD2300174EAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA742179DD2300174EAD /* ViewController.m */; };
 		A469EA7C2179DD7600174EAD /* DDYAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA7B2179DD7600174EAD /* DDYAuthManager.m */; };
-		A469EA802179E38000174EAD /* DDYAuthManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = A469EA822179E38000174EAD /* DDYAuthManager.strings */; };
+		A469EA89217DB02800174EAD /* NSBundle+DDYAuthManger.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA88217DB02800174EAD /* NSBundle+DDYAuthManger.m */; };
+		A469EA8B217DB47900174EAD /* DDYAuthManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A469EA8A217DB47900174EAD /* DDYAuthManager.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 		A469EA7A2179DD7600174EAD /* DDYAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDYAuthManager.h; sourceTree = "<group>"; };
 		A469EA7B2179DD7600174EAD /* DDYAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDYAuthManager.m; sourceTree = "<group>"; };
 		A469EA7F2179E37A00174EAD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		A469EA812179E38000174EAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DDYAuthManager.strings; sourceTree = "<group>"; };
-		A469EA832179E38100174EAD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DDYAuthManager.strings"; sourceTree = "<group>"; };
+		A469EA87217DB02800174EAD /* NSBundle+DDYAuthManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DDYAuthManger.h"; sourceTree = "<group>"; };
+		A469EA88217DB02800174EAD /* NSBundle+DDYAuthManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DDYAuthManger.m"; sourceTree = "<group>"; };
+		A469EA8A217DB47900174EAD /* DDYAuthManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYAuthManager.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,9 @@
 			children = (
 				A469EA7A2179DD7600174EAD /* DDYAuthManager.h */,
 				A469EA7B2179DD7600174EAD /* DDYAuthManager.m */,
-				A469EA822179E38000174EAD /* DDYAuthManager.strings */,
+				A469EA87217DB02800174EAD /* NSBundle+DDYAuthManger.h */,
+				A469EA88217DB02800174EAD /* NSBundle+DDYAuthManger.m */,
+				A469EA8A217DB47900174EAD /* DDYAuthManager.bundle */,
 			);
 			path = DDYAuthManager;
 			sourceTree = "<group>";
@@ -142,9 +146,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A469EA802179E38000174EAD /* DDYAuthManager.strings in Resources */,
 				A469EA772179DD2300174EAD /* Info.plist in Resources */,
 				A469EA762179DD2300174EAD /* LaunchScreen.storyboard in Resources */,
+				A469EA8B217DB47900174EAD /* DDYAuthManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A469EA792179DD2300174EAD /* ViewController.m in Sources */,
+				A469EA89217DB02800174EAD /* NSBundle+DDYAuthManger.m in Sources */,
 				A469EA7C2179DD7600174EAD /* DDYAuthManager.m in Sources */,
 				A469EA782179DD2300174EAD /* main.m in Sources */,
 				A469EA752179DD2300174EAD /* AppDelegate.m in Sources */,
@@ -172,15 +177,6 @@
 				A469EA7F2179E37A00174EAD /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A469EA822179E38000174EAD /* DDYAuthManager.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A469EA812179E38000174EAD /* en */,
-				A469EA832179E38100174EAD /* zh-Hans */,
-			);
-			name = DDYAuthManager.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
