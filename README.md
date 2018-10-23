@@ -76,7 +76,7 @@
 
 ```
 [DDYAuthManager ddy_ReminderAuthAlertShow:YES success:^{} fail:^(EKAuthorizationStatus authStatus) {}];
-``
+```
 
 
 ### 通知(推送)权限
