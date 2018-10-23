@@ -1,4 +1,4 @@
-/** MARK: -
+/** MARK: - DDYAuthManager 2018/10/22
  *  !!!: Author: 豆电雨
  *  !!!: QQ/WX:  634778311
  *  !!!: Github: https://github.com/RainOpen/
