@@ -14,7 +14,8 @@
   1.下载工程解压后将'DDYAuthManager'文件夹拖到工程中
   2.#import "DDYAuthManager.h"
 
-<br>
+
+
 > # 使用
 
 ### 录音(麦克风)权限
@@ -27,7 +28,7 @@
 // 也可以用 [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) { }];请求录音权限
 ```
 
-<br>
+
 ### 相机(摄像头)权限
 
 * 鉴定权限和请求权限统一
@@ -39,7 +40,7 @@
 // 可以先检查摄像头可用性 [DDYAuthManager isCameraAvailable]
 ```
 
-<br>
+
 ### 图片(相册)权限
 
 * 鉴定权限和请求权限统一
@@ -48,7 +49,7 @@
 [DDYAuthManager ddy_AlbumAuthAlertShow:YES success:^{} fail:^(PHAuthorizationStatus authStatus) {}];
 ```
 
-<br>
+
 ### 通讯录(联系人)权限
 
 * 鉴定权限和请求权限统一
@@ -57,7 +58,7 @@
 [DDYAuthManager ddy_ContactsAuthAlertShow:YES success:^{} fail:^(DDYContactsAuthStatus authStatus) {}];
 ```
 
-<br>
+
 ### 事件(日历)权限
 
 * 鉴定权限和请求权限统一
@@ -66,7 +67,7 @@
 [DDYAuthManager ddy_EventAuthAlertShow:YES success:^{} fail:^(EKAuthorizationStatus authStatus) {}];
 ```
 
-<br>
+
 ### 备忘录权限
 
 * 鉴定权限和请求权限统一
@@ -74,7 +75,7 @@
 ```
 [DDYAuthManager ddy_ReminderAuthAlertShow:YES success:^{} fail:^(EKAuthorizationStatus authStatus) {}];
 ``
-<br>
+
 ### 通知(推送)权限
 
 * 请求权限(注册通知)
@@ -102,7 +103,7 @@ if (@available(iOS 10.0, *)) {
 [DDYAuthManager ddy_PushNotificationAuthAlertShow:YES success:^{} fail:^{}];
 ```
 
-<br>
+
 ### 位置(定位)权限
 
 * 请求权限
@@ -124,7 +125,7 @@ if ([CLLocationManager locationServicesEnabled]) {
 [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeInUse alertShow:YES success:^{} fail:^(CLAuthorizationStatus authStatus) {}];
 ```
 
-<br>
+
 ### 语音识别(语音转文字)权限
 
 * 鉴定权限和请求权限统一
@@ -135,7 +136,7 @@ if (@available(iOS 10.0, *)) {
 }
 ```
 
-<br>
+
 ### 联网权限
 
 * 请求权限
