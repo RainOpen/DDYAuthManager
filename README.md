@@ -10,6 +10,8 @@
  
   2.#import <DDYAuthManager.h>
 
+[使用方案](https://github.com/starainDou/DDYAuthorityManager)
+
 * 文件夹拖入工程方式
   
   1.下载工程解压后将'DDYAuthManager'文件夹拖到工程中
