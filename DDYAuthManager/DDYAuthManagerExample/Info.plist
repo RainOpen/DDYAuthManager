@@ -20,13 +20,13 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NFCReaderUsageDescription</key>
-	<string>App需要您的同意，才能使用NFC，是否同意？</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>NFCReaderUsageDescription</key>
+    <string>App需要您的同意，才能使用NFC，是否同意？</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>App需要您的同意，才能访问媒体资料库，是否同意？</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
