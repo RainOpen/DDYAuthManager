@@ -118,7 +118,10 @@
         if ([CLLocationManager locationServicesEnabled]) {
             [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeAuthorized alertShow:YES success:^{
                 sender.selected = YES;
-            } fail:^(CLAuthorizationStatus authStatus) { }];
+            } fail:^(CLAuthorizationStatus authStatus) {
+                sender.selected = NO;
+                NSLog(@"定位服务被拒绝");
+            }];
         } else {
             sender.selected = NO;
             NSLog(@"定位服务未开启");
