@@ -298,14 +298,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23JJ7VRKJT;
+				DEVELOPMENT_TEAM = X634X4Y33S;
 				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartmesh.smart2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengyun.dengyunblln;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,14 +315,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23JJ7VRKJT;
+				DEVELOPMENT_TEAM = X634X4Y33S;
 				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartmesh.smart2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengyun.dengyunblln;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

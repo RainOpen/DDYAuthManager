@@ -9,7 +9,30 @@
 #import "DDYAuthManager.h"
 #import "NSBundle+DDYAuthManger.h"
 
+@interface DDYAuthManager ()<CLLocationManagerDelegate>
+
+// CLLocationManager实例必须是全局的变量，否则授权提示弹框可能不会一直显示。
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, assign) DDYCLLocationType locationType;
+@property (nonatomic, assign) BOOL locationShow;
+@property (nonatomic, copy) void (^locationSuccessBlock)(void);
+@property (nonatomic, copy) void (^locationFailureBlock)(CLAuthorizationStatus);
+
+@end
+
 @implementation DDYAuthManager
+
+static DDYAuthManager *shareInstance = nil;
+
++ (instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareInstance = [[self alloc] init];
+    });
+
+    return shareInstance;
+}
+
 /**
  [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) { }];
  */
@@ -273,29 +296,58 @@
 
 #pragma mark 定位权限
 + (void)ddy_LocationAuthType:(DDYCLLocationType)type alertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(CLAuthorizationStatus))fail{
-    // 如果定位服务都未开启，则显示永不(无权限)
+
+    CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
+
     if ([CLLocationManager locationServicesEnabled]) {
-        CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        // kCLAuthorizationStatusAuthorized 在iOS8+是禁止的，这里是为了兼容低版本，如果应用支持的最低版本为iOS8则忽略
-        if ([[UIDevice currentDevice] systemVersion].floatValue < 8.0 && authStatus == kCLAuthorizationStatusAuthorized) {
-            authStatus = kCLAuthorizationStatusAuthorizedAlways;
-        }
-#pragma clang diagnostic pop
-        if (authStatus == kCLAuthorizationStatusAuthorizedAlways) {
-            if (success) success();
-        } else if (authStatus == kCLAuthorizationStatusAuthorizedWhenInUse && type == DDYCLLocationTypeInUse) {
-            if (success) success();
-        } else if (authStatus == kCLAuthorizationStatusAuthorizedWhenInUse && type == DDYCLLocationTypeAlways) {
-            if (fail) fail(kCLAuthorizationStatusAuthorizedWhenInUse);
-        } else {
+        if (authStatus == kCLAuthorizationStatusNotDetermined || authStatus == kCLAuthorizationStatusRestricted) {
+            [DDYAuthManager shareInstance].locationManager = [[CLLocationManager alloc] init];
+            [DDYAuthManager shareInstance].locationManager.delegate = [DDYAuthManager shareInstance];
+            [[DDYAuthManager shareInstance].locationManager requestAlwaysAuthorization];
+            [[DDYAuthManager shareInstance].locationManager requestWhenInUseAuthorization];
+            [[DDYAuthManager shareInstance].locationManager startUpdatingLocation];
+            [DDYAuthManager shareInstance].locationType = type;
+            [DDYAuthManager shareInstance].locationShow = show;
+            [DDYAuthManager shareInstance].locationSuccessBlock = success;
+            [DDYAuthManager shareInstance].locationFailureBlock = fail;
+        } else if (authStatus == kCLAuthorizationStatusDenied) {
             if (fail) fail(authStatus);
             if (show) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthLocation"]];
+        } else {
+            if (authStatus == kCLAuthorizationStatusAuthorizedAlways && type == DDYCLLocationTypeAlways) {
+                if (success) success();
+            } else if (authStatus == kCLAuthorizationStatusAuthorizedWhenInUse && type == DDYCLLocationTypeInUse) {
+                if (success) success();
+            } else if (type == DDYCLLocationTypeAuthorized) {
+                if (success) success();
+            } else {
+                if (fail) fail(authStatus);
+                if (show) [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthLocation"]];
+            }
         }
     } else {
-        NSLog(@"Location Services 未开启");
+        NSLog(@"Location Services 未开启 %d", authStatus);
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [DDYAuthManager ddy_LocationAuthType:[DDYAuthManager shareInstance].locationType
+                                   alertShow:[DDYAuthManager shareInstance].locationShow
+                                     success:[DDYAuthManager shareInstance].locationSuccessBlock
+                                        fail:[DDYAuthManager shareInstance].locationFailureBlock];
+    });
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [DDYAuthManager ddy_LocationAuthType:[DDYAuthManager shareInstance].locationType
+                                   alertShow:[DDYAuthManager shareInstance].locationShow
+                                     success:[DDYAuthManager shareInstance].locationSuccessBlock
+                                        fail:[DDYAuthManager shareInstance].locationFailureBlock];
+    });
 }
 
 #pragma mark 语音识别(转文字)权限

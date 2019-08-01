@@ -47,8 +47,9 @@ typedef NS_OPTIONS(NSUInteger, DDYPushNotiType) {
 
 /** 定位 只允许鉴定两种状态  */
 typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
-    DDYCLLocationTypeAlways = 3,
-    DDYCLLocationTypeInUse  = 4,
+    DDYCLLocationTypeAlways = 3,  // 严格意义，如果不是always则失败并返回授权状态
+    DDYCLLocationTypeInUse = 4,   // 严格意义，如果不是InUse则失败并返回授权状态
+    DDYCLLocationTypeAuthorized = 5, // 宽松意义，只要授权则成功并则失败并返回授权状态(极力推荐使用)
 };
 
 @interface DDYAuthManager : NSObject

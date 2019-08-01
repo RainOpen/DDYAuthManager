@@ -15,8 +15,6 @@
 
 @property (nonatomic, strong) UIImage *imgSelect;
 
-// CLLocationManager实例必须是全局的变量，否则授权提示弹框可能不会一直显示。
-@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -26,8 +24,7 @@
     [super viewDidLoad];
     _imgNormal = [self circleBorderWithColor:[UIColor grayColor] radius:8];
     _imgSelect = [self circleImageWithColor:[UIColor greenColor] radius:8];
-    
-    [self requestWhenInUseLocationAuthorization];
+
     [self registerRemoteNotification];
     [self requestNetAuth];
     
@@ -45,14 +42,6 @@
 #pragma mark 联网权限
 - (void)requestNetAuth {
     [DDYAuthManager ddy_GetNetAuthWithURL:nil];
-}
-
-#pragma mark 定位申请
-- (void)requestWhenInUseLocationAuthorization {
-    if ([CLLocationManager locationServicesEnabled]) {
-        _locationManager = [[CLLocationManager alloc] init];
-        [_locationManager requestWhenInUseAuthorization];
-    }
 }
 
 #pragma mark 远程推送通知 实际要在Appdelegate（可使用分类）
@@ -127,7 +116,7 @@
         } fail:^{ }];
     } else if (sender.tag == 107) {
         if ([CLLocationManager locationServicesEnabled]) {
-            [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeInUse alertShow:YES success:^{
+            [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeAuthorized alertShow:YES success:^{
                 sender.selected = YES;
             } fail:^(CLAuthorizationStatus authStatus) { }];
         } else {
@@ -188,6 +177,11 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"回到前台");
 }
 
 @end
