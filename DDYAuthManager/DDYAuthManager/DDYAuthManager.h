@@ -7,28 +7,29 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 // 麦克风/摄像头(相机)权限使用
-@import AVFoundation;
+#import <AVFoundation/AVFoundation.h>
 // 相册权限使用
-@import AssetsLibrary;  // iOS 6-9
-@import Photos;         // iOS 8+
+#import <AssetsLibrary/AssetsLibrary.h>  // iOS 6-9（可能要删除）
+#import <Photos/Photos.h>         // iOS 8+
 // 通讯录权限使用
-@import AddressBook;    // iOS 9-
-@import Contacts;       // iOS 9+
+#import <AddressBook/AddressBook.h>   // iOS 9-
+#import <Contacts/Contacts.h>       // iOS 9+
 // 日历/备忘录权限使用
-@import EventKit;
+#import <EventKit/EventKit.h>
 // 联网权限使用
-@import CoreTelephony;
+#import <CoreTelephony/CTCellularData.h>
 // 通知权限使用
-@import UserNotifications;
+#import <UserNotifications/UserNotifications.h>
 // 定位权限使用
-@import CoreLocation;
+#import <CoreLocation/CoreLocation.h>
 // 语音识别(转文字)权限使用
-@import Speech;
+#import <Speech/Speech.h>
 // FaceID权限使用
-@import LocalAuthentication;
+#import <LocalAuthentication/LocalAuthentication.h>
 // 健康数据权限使用
-@import HealthKit;
+#import <HealthKit/HealthKit.h>
 
 /** 通讯录兼容(iOS 9- 和 iOS 9+)权限状态 */
 typedef NS_ENUM(NSInteger, DDYContactsAuthStatus) {
