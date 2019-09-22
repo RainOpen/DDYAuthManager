@@ -6,7 +6,7 @@
 
 * CocoaPods方式 
 
-  1.pod 'DDYAuthManager', '~> 1.0.0' 
+  1.pod 'DDYAuthManager', '~> 1.1.0' 
  
   2.#import <DDYAuthManager.h>
 
