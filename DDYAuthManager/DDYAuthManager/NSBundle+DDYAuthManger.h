@@ -1,10 +1,9 @@
-/** MARK: - DDYAuthManager 2018/10/22
- *  !!!: Author: 豆电雨
- *  !!!: QQ/WX:  634778311
- *  !!!: Github: https://github.com/RainOpen/
- *  !!!: Blog:   https://www.jianshu.com/u/a4bc2516e9e5
- *  MARK: - 用于自定义bundle资源加载(比如国际化文件、图片等)
- */
+/// MARK: - DDYAuthManager 2018/10/22
+/// !!!: Author: 豆电雨
+/// !!!: QQ/WX:  634778311
+/// !!!: Github: https://github.com/RainOpen/
+/// !!!: Blog:   https://juejin.im/user/57dddcd8128fe10064cadee9
+/// MARK: - 用于自定义bundle资源加载(比如国际化文件、图片等)
 
 #import <Foundation/Foundation.h>
 
@@ -12,7 +11,7 @@
 
 @interface NSBundle (DDYAuthManger)
 
-+ (NSBundle *)ddyAuthManagerBundle;
++ (instancetype)ddyAuthManagerBundle;
 + (NSString *)ddyLocalizedStringForKey:(NSString *)key;
 + (NSString *)ddyLocalizedStringForKey:(NSString *)key value:(NSString *)value;
 

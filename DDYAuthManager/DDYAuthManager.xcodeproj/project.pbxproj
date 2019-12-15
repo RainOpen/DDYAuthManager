@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A469EA752179DD2300174EAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA6E2179DD2300174EAD /* AppDelegate.m */; };
 		A469EA762179DD2300174EAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A469EA6F2179DD2300174EAD /* LaunchScreen.storyboard */; };
-		A469EA772179DD2300174EAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A469EA712179DD2300174EAD /* Info.plist */; };
+		A469EA772179DD2300174EAD /* DDYAuthManagerInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A469EA712179DD2300174EAD /* DDYAuthManagerInfo.plist */; };
 		A469EA782179DD2300174EAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA722179DD2300174EAD /* main.m */; };
 		A469EA792179DD2300174EAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA742179DD2300174EAD /* ViewController.m */; };
 		A469EA7C2179DD7600174EAD /* DDYAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A469EA7B2179DD7600174EAD /* DDYAuthManager.m */; };
@@ -22,7 +22,7 @@
 		A469EA6D2179DD2300174EAD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A469EA6E2179DD2300174EAD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A469EA702179DD2300174EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A469EA712179DD2300174EAD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A469EA712179DD2300174EAD /* DDYAuthManagerInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DDYAuthManagerInfo.plist; sourceTree = "<group>"; };
 		A469EA722179DD2300174EAD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A469EA732179DD2300174EAD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A469EA742179DD2300174EAD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				A469EA6D2179DD2300174EAD /* AppDelegate.h */,
 				A469EA6E2179DD2300174EAD /* AppDelegate.m */,
 				A469EA6F2179DD2300174EAD /* LaunchScreen.storyboard */,
-				A469EA712179DD2300174EAD /* Info.plist */,
+				A469EA712179DD2300174EAD /* DDYAuthManagerInfo.plist */,
 				A469EA722179DD2300174EAD /* main.m */,
 				A469EA732179DD2300174EAD /* ViewController.h */,
 				A469EA742179DD2300174EAD /* ViewController.m */,
@@ -146,7 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A469EA772179DD2300174EAD /* Info.plist in Resources */,
+				A469EA772179DD2300174EAD /* DDYAuthManagerInfo.plist in Resources */,
 				A469EA762179DD2300174EAD /* LaunchScreen.storyboard in Resources */,
 				A469EA8B217DB47900174EAD /* DDYAuthManager.bundle in Resources */,
 			);
@@ -299,7 +299,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X634X4Y33S;
-				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/DDYAuthManagerInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -316,7 +316,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X634X4Y33S;
-				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/DDYAuthManagerExample/DDYAuthManagerInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
