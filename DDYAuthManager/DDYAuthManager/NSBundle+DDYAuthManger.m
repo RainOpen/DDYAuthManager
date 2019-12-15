@@ -15,22 +15,27 @@
     return [NSBundle bundleWithURL:[bundle URLForResource:@"DDYAuthManager" withExtension:@"bundle"]];
 }
 
-+ (NSString *)ddyLocalizedStringForKey:(NSString *)key {
-    return [self ddyLocalizedStringForKey:key value:nil];
++ (NSString *)ddyAuthManagerLocalizedStringForKey:(NSString *)key {
+    return [self ddyAuthManagerLocalizedStringForKey:key value:nil];
 }
 
-+ (NSString *)ddyLocalizedStringForKey:(NSString *)key value:(NSString *)value {
-    NSBundle *bundle = nil;
++ (NSString *)ddyAuthManagerLocalizedStringForKey:(NSString *)key value:(NSString *)value {
     NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:@"DDYLanguages"];
-    if (!language) language = [NSLocale preferredLanguages].firstObject;
-    if ([language hasPrefix:@"zh"]) {
+    if (!language) {
+        language = [NSLocale preferredLanguages].firstObject;
+    }
+    if (!language) {
+        language = @"zh-Hans";
+    } else if ([language hasPrefix:@"zh"]) {
         language = @"zh-Hans";
     } else {
         language = @"en";
     }
-    bundle = [NSBundle bundleWithPath:[[NSBundle ddyAuthManagerBundle] pathForResource:language ofType:@"lproj"]];
-    // 如果默认Localizable.strings则nil，这里命名DDYAuthManager.strings
-    value =  [bundle localizedStringForKey:key value:value table:@"DDYAuthManager"];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle ddyAuthManagerBundle] pathForResource:language ofType:@"lproj"]];
+    if (bundle) {
+        // 如果默认Localizable.strings则nil，这里命名DDYAuthManager.strings
+        value =  [bundle localizedStringForKey:key value:value table:@"DDYAuthManager"];
+    }
     // (如果拖入工程)可以在[NSBundle mainBundle]查找，如果没有则返回原key
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
 }

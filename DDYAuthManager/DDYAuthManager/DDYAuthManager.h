@@ -53,7 +53,7 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
 };
 
 @interface DDYAuthManager : NSObject
-
+/// 默认提示App名字
 @property (nonatomic, strong) NSString *appName;
 
 /// 麦克风权限 带主动请权

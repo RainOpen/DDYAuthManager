@@ -491,7 +491,7 @@
 
 // MARK: 国际化支持
 + (NSString *)i18n:(NSString *)str {
-    return DDYAuthManagerI18n(str);
+    return [NSBundle ddyAuthManagerLocalizedStringForKey:str];
 }
 
 @end

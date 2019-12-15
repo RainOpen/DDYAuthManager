@@ -7,12 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define DDYAuthManagerI18n(key) [NSBundle ddyLocalizedStringForKey:(key)]
-
 @interface NSBundle (DDYAuthManger)
 
 + (instancetype)ddyAuthManagerBundle;
-+ (NSString *)ddyLocalizedStringForKey:(NSString *)key;
-+ (NSString *)ddyLocalizedStringForKey:(NSString *)key value:(NSString *)value;
++ (NSString *)ddyAuthManagerLocalizedStringForKey:(NSString *)key;
++ (NSString *)ddyAuthManagerLocalizedStringForKey:(NSString *)key value:(NSString *)value;
 
 @end
