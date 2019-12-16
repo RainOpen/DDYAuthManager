@@ -28,7 +28,7 @@
     [self registerRemoteNotification];
     [self requestNetAuth];
     
-    NSArray *authArray = @[@"麦克风", @"摄像头", @"相册", @"通讯录", @"日历", @"备忘录", @"推送", @"定位", @"语音识别(iOS10+)", @"联网权限(iOS10+)"];
+    NSArray *authArray = @[@"麦克风", @"摄像头", @"相册", @"通讯录", @"推送", @"定位", @"联网权限(iOS10+)"];
     for (NSInteger i = 0; i < authArray.count; i++) {
         @autoreleasepool {
             UIButton *button = [self generateButton:i title:authArray[i]];
@@ -103,18 +103,10 @@
             sender.selected = YES;
         } fail:^(DDYContactsAuthStatus authStatus) { }];
     } else if (sender.tag == 104) {
-        [DDYAuthManager ddy_EventAuthAlertShow:YES success:^{
-            sender.selected = YES;
-        } fail:^(EKAuthorizationStatus authStatus) { }];
-    } else if (sender.tag == 105) {
-        [DDYAuthManager ddy_ReminderAuthAlertShow:YES success:^{
-            sender.selected = YES;
-        } fail:^(EKAuthorizationStatus authStatus) { }];
-    } else if (sender.tag == 106) {
         [DDYAuthManager ddy_PushNotificationAuthAlertShow:YES success:^{
             sender.selected = YES;
         } fail:^{ }];
-    } else if (sender.tag == 107) {
+    } else if (sender.tag == 105) {
         if ([CLLocationManager locationServicesEnabled]) {
             [DDYAuthManager ddy_LocationAuthType:DDYCLLocationTypeAuthorized alertShow:YES success:^{
                 sender.selected = YES;
@@ -127,16 +119,7 @@
             NSLog(@"定位服务未开启");
         }
         
-    } else if (sender.tag == 108) {
-        if (@available(iOS 10.0, *)) {
-            [DDYAuthManager ddy_SpeechAuthAlertShow:YES success:^{
-                sender.selected = YES;
-            } fail:^(SFSpeechRecognizerAuthorizationStatus authStatus) { }]; 
-        } else {
-            sender.selected = NO;
-            [self showAlertWithMessage:@"iOS10+才有"];
-        }
-    } else if (sender.tag == 109) {
+    } else if (sender.tag == 106) {
         if (@available(iOS 10.0, *)) {
             [DDYAuthManager ddy_NetAuthAlertShow:YES success:^{
                 sender.selected = YES;

@@ -15,20 +15,14 @@
 // 通讯录权限使用
 #import <AddressBook/AddressBook.h>   // iOS 9-
 #import <Contacts/Contacts.h>       // iOS 9+
-// 日历/备忘录权限使用
-#import <EventKit/EventKit.h>
 // 联网权限使用
 #import <CoreTelephony/CTCellularData.h>
 // 通知权限使用
 #import <UserNotifications/UserNotifications.h>
 // 定位权限使用
 #import <CoreLocation/CoreLocation.h>
-// 语音识别(转文字)权限使用
-#import <Speech/Speech.h>
 // FaceID权限使用
 #import <LocalAuthentication/LocalAuthentication.h>
-// 健康数据权限使用
-#import <HealthKit/HealthKit.h>
 
 /// 通讯录兼容(iOS 9- 和 iOS 9+)权限状态
 typedef NS_ENUM(NSInteger, DDYContactsAuthStatus) {
@@ -97,22 +91,6 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
                           success:(void (^)(void))success
                              fail:(void (^)(DDYContactsAuthStatus authStatus))fail;
 
-/// 日历权限 带主动请权
-/// @param show 无权限时默认提示
-/// @param success 已授权回调
-/// @param fail 无权限回调
-+ (void)ddy_EventAuthAlertShow:(BOOL)show
-                       success:(void (^)(void))success
-                          fail:(void (^)(EKAuthorizationStatus authStatus))fail;
-
-/// 备忘录权限 带主动请权
-/// @param show 无权限时默认提示
-/// @param success 已授权回调
-/// @param fail 无权限回调
-+ (void)ddy_ReminderAuthAlertShow:(BOOL)show
-                          success:(void (^)(void))success
-                             fail:(void (^)(EKAuthorizationStatus authStatus))fail;
-
 /// 用网络请求方式主动获取一次权限 首次安装才可能联网权限弹窗(如果弹窗时没点击任何信息直接关机，下次启动仍视为首次)
 /// @param url 要请求的URL 如:www.baidu.com http需设置AST
 + (void)ddy_GetNetAuthWithURL:(NSURL *)url;
@@ -143,24 +121,6 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
                    alertShow:(BOOL)show
                      success:(void (^)(void))success
                         fail:(void (^)(CLAuthorizationStatus authStatus))fail;
-
-/// 语音识别(转文字)权限 带主动请权
-/// @param show 无权限时默认提示
-/// @param success 已授权回调
-/// @param fail 无权限回调
-+ (void)ddy_SpeechAuthAlertShow:(BOOL)show
-                        success:(void (^)(void))success
-                           fail:(void (^)(SFSpeechRecognizerAuthorizationStatus authStatus))fail API_AVAILABLE(ios(10.0));
-
-/// 健康数据权限 不带主动请权 使用前先判断健康数据是否可用 [HKHealthStore isHealthDataAvailable]
-/// @param type HKQuantityTypeIdentifier(NSString *) 要鉴权类型 HKQuantityTypeIdentifierStepCount
-/// @param show 无权限时默认提示
-/// @param success 已授权回调
-/// @param fail 无权限回调
-+ (void)ddy_HealthAuth:(HKQuantityTypeIdentifier)type
-             alertShow:(BOOL)show
-               success:(void (^)(void))success
-                  fail:(void (^)(HKAuthorizationStatus authStatus))fail;
 
 @end
 

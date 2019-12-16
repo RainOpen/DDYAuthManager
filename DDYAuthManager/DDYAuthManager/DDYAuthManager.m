@@ -173,60 +173,6 @@
     }
 }
 
-// MARK: - 日历权限
-+ (void)ddy_EventAuthAlertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(EKAuthorizationStatus))fail {
-    void (^handleResult)(BOOL, EKAuthorizationStatus) = ^(BOOL isAuthorized, EKAuthorizationStatus authStatus) {
-        if (isAuthorized && success) {
-            success();
-        }
-        if (!isAuthorized && show) {
-            [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthCalendars"]];
-        }
-        if (!isAuthorized && fail) {
-            fail(authStatus);
-        }
-    };
-    
-    EKAuthorizationStatus authStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
-    if (authStatus == EKAuthorizationStatusNotDetermined) {
-        EKEventStore *eventStore = [[EKEventStore alloc] init];
-        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                handleResult(granted, granted ? EKAuthorizationStatusAuthorized : EKAuthorizationStatusDenied);
-            });
-        }];
-    } else  {
-        handleResult(authStatus == EKAuthorizationStatusAuthorized, authStatus);
-    }
-}
-
-// MARK: - 备忘录权限
-+ (void)ddy_ReminderAuthAlertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(EKAuthorizationStatus))fail {
-    void (^handleResult)(BOOL, EKAuthorizationStatus) = ^(BOOL isAuthorized, EKAuthorizationStatus authStatus) {
-        if (isAuthorized && success) {
-            success();
-        }
-        if (!isAuthorized && show) {
-            [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthReminders"]];
-        }
-        if (!isAuthorized && fail) {
-            fail(authStatus);
-        }
-    };
-    
-    EKAuthorizationStatus authStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
-    if (authStatus == EKAuthorizationStatusNotDetermined) {
-        EKEventStore *eventStore = [[EKEventStore alloc] init];
-        [eventStore requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                handleResult(granted, granted ? EKAuthorizationStatusAuthorized : EKAuthorizationStatusDenied);
-            });
-        }];
-    } else  {
-        handleResult(authStatus == EKAuthorizationStatusAuthorized, authStatus);
-    }
-}
-
 /** 关于APP首次安装(一旦用户选择后即使卸载重装也不会再弹窗)联网权限弹窗，无法得知用户是否点击允许或不允许(苹果没有给出api),所以常规按以下流程自行判断
  *  1.用keychain记录是否是首次安装(和弹窗一致)，若是首次安装则启动APP后进入特定界面(如引导页),如果不是那么严格忽略该步骤。
  *  2.用 -checkNetworkConnectWhenAirplaneModeOrNoWlanCellular 判断是否特殊情况(完全无网络时首次启动APP，不会联网权限弹窗)。
@@ -411,53 +357,6 @@
                                      success:[DDYAuthManager shareInstance].locationSuccessBlock
                                         fail:[DDYAuthManager shareInstance].locationFailureBlock];
     });
-}
-
-// MARK: - 语音识别(转文字)权限
-+ (void)ddy_SpeechAuthAlertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(SFSpeechRecognizerAuthorizationStatus))fail {
-    void (^handleResult)(BOOL, SFSpeechRecognizerAuthorizationStatus) = ^(BOOL isAuthorized, SFSpeechRecognizerAuthorizationStatus authStatus) {
-        if (isAuthorized && success) {
-            success();
-        }
-        if (!isAuthorized && fail) {
-            fail(authStatus);
-        }
-        if (!isAuthorized && show) {
-            [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthSpeech"]];
-        }
-    };
-    SFSpeechRecognizerAuthorizationStatus authStatus = [SFSpeechRecognizer authorizationStatus];
-    if (authStatus == SFSpeechRecognizerAuthorizationStatusNotDetermined) {
-        [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                handleResult(status == SFSpeechRecognizerAuthorizationStatusAuthorized, status);
-            });
-        }];
-    } else {
-        handleResult(authStatus == SFSpeechRecognizerAuthorizationStatusAuthorized, authStatus);
-    }
-}
-
-// MARK: - 健康数据权限
-+ (void)ddy_HealthAuth:(HKQuantityTypeIdentifier)type alertShow:(BOOL)show success:(void (^)(void))success fail:(void (^)(HKAuthorizationStatus))fail {
-    if ([HKHealthStore isHealthDataAvailable]) {
-        HKHealthStore *healthStore = [[HKHealthStore alloc] init];
-        HKQuantityType *quantityType = [HKObjectType quantityTypeForIdentifier:type];
-        if (quantityType) {
-            HKAuthorizationStatus authStatus = [healthStore authorizationStatusForType:quantityType];
-            if (authStatus == HKAuthorizationStatusSharingAuthorized && success) {
-                success();
-            }
-            if (authStatus != HKAuthorizationStatusSharingAuthorized && fail) {
-                fail(authStatus);
-            }
-            if (authStatus != HKAuthorizationStatusSharingAuthorized && show) {
-                [self showAlertWithAuthInfo:[self i18n:@"DDYNoAuthHealth"]];
-            }
-        }
-    } else {
-        NSLog(@"健康数据不可用");
-    }
 }
 
 // MARK: - 私有方法

@@ -1,6 +1,6 @@
 Pod::Spec.new do |ddyspec|
     ddyspec.name         = 'DDYAuthManager'
-    ddyspec.version      = '1.3.0'
+    ddyspec.version      = '1.4.0'
     ddyspec.summary      = '各种权限验证(部分带主动申请权限)，麦克风/相机/相册/日历/备忘录/联网/推送通知/定位/语音识别权限等等'
     ddyspec.homepage     = 'https://github.com/RainOpen/DDYAuthManager'
     ddyspec.license      = 'MIT'
