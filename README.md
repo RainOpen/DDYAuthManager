@@ -10,7 +10,7 @@
 
 * CocoaPods方式 
 
-  1.pod 'DDYAuthManager', '~> 1.4.0' 
+  1.pod 'DDYAuthManager', '~> 1.4.0'  (更多权限需要用1.3.0 如健康数据，speech等)
  
   2.#import <DDYAuthManager/DDYAuthManager.h>
 
