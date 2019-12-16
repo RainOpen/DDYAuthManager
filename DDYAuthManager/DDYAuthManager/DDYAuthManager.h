@@ -131,7 +131,7 @@ typedef NS_ENUM(NSUInteger, DDYCLLocationType) {
  </dict>
  
  
- <!-- 权限配置 -->
+ <!-- 权限配置 按需添加(如不需健康数据，添加Health相关会被拒) -->
  <key>NSAppleMusicUsageDescription</key>
  <string>App需要您的同意，才能访问媒体资料库，是否同意？</string>
  <key>NSBluetoothPeripheralUsageDescription</key>
