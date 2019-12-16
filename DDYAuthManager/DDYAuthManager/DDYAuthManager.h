@@ -21,8 +21,6 @@
 #import <UserNotifications/UserNotifications.h>
 // 定位权限使用
 #import <CoreLocation/CoreLocation.h>
-// FaceID权限使用
-#import <LocalAuthentication/LocalAuthentication.h>
 
 /// 通讯录兼容(iOS 9- 和 iOS 9+)权限状态
 typedef NS_ENUM(NSInteger, DDYContactsAuthStatus) {
