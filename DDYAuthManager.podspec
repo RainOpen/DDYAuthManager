@@ -10,5 +10,5 @@ Pod::Spec.new do |ddyspec|
     ddyspec.source_files = 'DDYAuthManager/DDYAuthManager/*.{h,m}'
     ddyspec.resource     = 'DDYAuthManager/DDYAuthManager/DDYAuthManager.bundle'
     ddyspec.requires_arc = true
-    ddyspec.frameworks   = "UIKit", "AVFoundation", "AssetsLibrary", "Photos", "AddressBook", "Contacts", "EventKit", "CoreTelephony", "UserNotifications", "CoreLocation", "Speech", "LocalAuthentication", "HealthKit"
+    ddyspec.frameworks   = "UIKit", "AVFoundation", "AssetsLibrary", "Photos", "AddressBook", "Contacts", "EventKit", "CoreTelephony", "UserNotifications", "CoreLocation", "Speech", "LocalAuthentication"
 end
